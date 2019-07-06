@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class QuoteComponent implements OnInit {
 
-  private quote$: Observable<Object>;
+  public quote$: Observable<Object>;
 
   constructor(private quoteS: QuoteService) { 
   }
