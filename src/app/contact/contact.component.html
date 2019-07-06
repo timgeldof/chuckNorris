@@ -1,0 +1,29 @@
+<form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+  <label>
+    first Name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    last Name:
+    <input type="text" formControlName="lastName">
+  </label>
+  <label>
+    e-mail*:
+    <input type="text" formControlName="email">
+  </label>
+  <div class="error" *ngIf="contactForm.controls['email'].errors">
+      <div [hidden]="!contactForm.controls['email'].errors.required">E-mail is required.</div>
+      <div [hidden]="!contactForm.controls['email'].errors.email">E-mail is incorrect.</div>
+  </div>
+
+  <label>
+    message*:
+    <input type="text" formControlName="message">
+  </label>
+  <div class="error" *ngIf="contactForm.controls['message'].errors">
+      <div [hidden]="!contactForm.controls['message'].errors.required">Message is required.</div>
+      <div [hidden]="!contactForm.controls['message'].errors.minlength">Message must be at least 15 characters.</div>
+  </div>
+  <button [disabled]="!contactForm.valid" type="submit">Send</button>
+</form>

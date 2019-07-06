@@ -1,0 +1,5 @@
+  <div *ngIf="(quote$ | async) as quote">
+    <h1>Chuck Norris Joke</h1>
+    <p>~ {{quote.value}} ~</p>
+    <button (click)="getNewJoke()">New joke</button>
+  </div>
